@@ -14,7 +14,6 @@
 
             // preferences
             var defaultTemplateFileLocation = "defaultTemplate.aet";
-            var defaultEditTemplateFileLocation =  $.getenv("BUCK_SOURCE_ROOT")+"/AE/templates/defaultEditTemplate.aet";
             if (! app.settings.haveSetting(scriptName, "templateFile")){app.settings.saveSetting(scriptName,"templateFile",defaultTemplateFileLocation);}
             
             

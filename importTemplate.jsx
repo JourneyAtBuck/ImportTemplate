@@ -9,7 +9,7 @@
         function ImportTemplate_buildUI(thisObj){
             // info
             var scriptName = "ImportTemplate";
-            var scriptVersion = "v.01";
+            var scriptVersion = "v.02";
             var appVer = app.version;
 
             // preferences
@@ -79,7 +79,7 @@
             function importTemplate() {
                 
                 try {
-                    var masterFolder = app.project.importFile(new ImportOptions(File(app.settings.getSetting("BuckTab", "templateFile"))));
+                    var masterFolder = app.project.importFile(new ImportOptions(File(app.settings.getSetting(scriptName, "templateFile"))));
                     app.beginUndoGroup("Import template file");
                 }
                     catch(e)

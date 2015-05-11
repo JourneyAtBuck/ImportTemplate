@@ -11,9 +11,21 @@
             var scriptName = "ImportTemplate";
             var scriptVersion = "v.02";
             var appVer = app.version;
+            
+            function getScriptFolder(){  // function to find path to this script
+                 try {   
+                      var activeScript = File(app.activeScript);   
+                 } catch(e) {   
+                      // running from ESTK ...   
+                      var activeScript = File(e.fileName);   
+                 }   
+                 return activeScript.parent;  
+            } 
 
             // preferences
-            var defaultTemplateFileLocation = "defaultTemplate.aet";
+           
+            var defaultTemplateFileLocation =getScriptFolder().toString()+"/defaultTemplate.aet";
+            
             if (! app.settings.haveSetting(scriptName, "templateFile")){app.settings.saveSetting(scriptName,"templateFile",defaultTemplateFileLocation);}
             
             

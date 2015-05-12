@@ -9,7 +9,7 @@
         function ImportTemplate_buildUI(thisObj){
             // info
             var scriptName = "ImportTemplate";
-            var scriptVersion = "v.02";
+            var scriptVersion = "v.03";
             var appVer = app.version;
             
             function getScriptFolder(){  // function to find path to this script
@@ -82,8 +82,9 @@
 
                     // Remember the template for the next session
                     app.settings.saveSetting(scriptName,"templateFile", templateFile.absoluteURI);
+                    return true;
                 } else {
-                    return;
+                    return false;
                 }
             }
             
@@ -97,7 +98,8 @@
                     catch(e)
                 {
                     alert("Template file does not exist. Please use the \"...\" button to choose a template file.");
-                    changeTemplate();
+                    var templateChosen = changeTemplate();
+                    if (templateChosen) importTemplate();
                     return;
                 }
                 mergeFolderContents(masterFolder,app.project.rootFolder);

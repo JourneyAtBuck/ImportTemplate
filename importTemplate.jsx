@@ -97,6 +97,7 @@
                     catch(e)
                 {
                     alert("Template file does not exist. Please use the \"...\" button to choose a template file.");
+                    changeTemplate();
                     return;
                 }
                 mergeFolderContents(masterFolder,app.project.rootFolder);
